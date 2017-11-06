@@ -20,7 +20,7 @@ TablePtr<FPType> readCsv(const char* const name);
 
 int main()
 {
-    TablePtr<FPType> data = readCsv("./../../als_train.csv");
+    TablePtr<FPType> data = readCsv("als_train.csv");
 
     als::Train<FPType> algorithm;
     algorithm.parameter.nFactors = 3;
