@@ -10,9 +10,11 @@
 #include <fstream>
 #include <vector>
 #include <cstdlib>
+#include <iostream>
 
 #include "matrix_operations.h"
 #include "implicit_als_train.h"
+#include "prediction.h"
 
 using FPType = float;
 TablePtr<FPType> readCsv(const char* const name);
@@ -43,6 +45,9 @@ int main()
     printTable(itemsFactors, "ItemsFactors");
     printTable(usersFactors, "UsersFactors");
     printTable(utils::matrixMultiplication(utils::getTransposeMatrix(usersFactors), itemsFactors), "Result");
+
+    als::Prediction<FPType> predict(model,data);
+    std::cout<<"rating 3 users 3 item= "<<predict.getRating(3,3)<<std::endl;
 
     return 0;
 }

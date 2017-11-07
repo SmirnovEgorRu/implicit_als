@@ -6,7 +6,7 @@
 *
 ****************************************************
 */
-
+#pragma once
 #ifndef _NUMERIC_TABLE_
 #define _NUMERIC_TABLE_
 
@@ -42,14 +42,26 @@ public:
         return _data[idx];
     }
 
+    inline Table<T>& operator=(const Table<T>& right)
+    {
+        for(size_t i=0;i<_nRows;i++)
+        {
+            for(size_t j=0;j<_nCols;j++)
+            {
+                (*this)[i*_nCols+j]=(*right)[i*_nCols+j];
+            }
+        }
+        return *this;
+    }
+
     const T*  getPtr() const
     {
-        return _data; 
+        return _data;
     }
 
     T*  getPtr()
     {
-        return _data; 
+        return _data;
     }
 
     ~Table()
