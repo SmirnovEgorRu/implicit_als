@@ -52,7 +52,9 @@ int main()
     std::cout<<"Best item for user #4 = "<<result.first<<"      with rating= "<<result.second<<std::endl;
     result=predict.getBestItem();
     std::cout<<"Best item for all users = "<<result.first<<"      with rating= "<<result.second<<std::endl;
-
+    std::cout<<"Max item = "<<predict.maxItem()<<std::endl;
+    std::cout<<"Min item = "<<predict.minItem()<<std::endl;
+    std::cout<<"Avg= "<<predict.avg()<<std::endl;
     return 0;
 }
 

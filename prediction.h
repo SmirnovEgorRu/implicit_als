@@ -64,6 +64,61 @@ public:
         return _bestItem;
     }
 
+    FPType maxItem()
+    {
+        size_t _rows=_table->getNumberOfRows();
+        size_t _cols=_table->getNumberOfColumns();
+        FPType maxItem=0;
+
+        for(size_t i=0;i<_cols;i++)
+        {
+            for(size_t j=0;j<_rows;j++)
+            {
+                if((*_table)[j*_cols+i]>maxItem)
+                {
+                    maxItem=(*_table)[j*_cols+i];
+                }
+
+            }
+    }
+    return maxItem;
+    }
+
+     FPType minItem()
+    {
+        size_t _rows=_table->getNumberOfRows();
+        size_t _cols=_table->getNumberOfColumns();
+        FPType minItem=0;
+
+        for(size_t i=0;i<_cols;i++)
+        {
+            for(size_t j=0;j<_rows;j++)
+            {
+                if((*_table)[j*_cols+i]<minItem)
+                {
+                    minItem=(*_table)[j*_cols+i];
+                }
+
+            }
+    }
+    return minItem;
+    }
+
+    FPType avg()
+    {
+        size_t _rows=_table->getNumberOfRows();
+        size_t _cols=_table->getNumberOfColumns();
+        FPType sum=0;
+
+        for(size_t i=0;i<_cols;i++)
+        {
+            for(size_t j=0;j<_rows;j++)
+            {
+                    sum+=(*_table)[j*_cols+i];
+            }
+    }
+    return sum/(_cols*_rows);
+    }
 
 
 private:
