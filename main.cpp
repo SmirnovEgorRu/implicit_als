@@ -47,7 +47,11 @@ int main()
     printTable(utils::matrixMultiplication(utils::getTransposeMatrix(usersFactors), itemsFactors), "Result");
 
     als::Prediction<FPType> predict(model,data);
-    std::cout<<"rating 3 users 3 item= "<<predict.getRating(3,3)<<std::endl;
+    std::cout<<"Rating user #3 and item #3= "<<predict.getRating(3,3)<<std::endl;
+    std::pair<FPType,FPType> result=predict.getBestItem(4);
+    std::cout<<"Best item for user #4 = "<<result.first<<"      with rating= "<<result.second<<std::endl;
+    result=predict.getBestItem();
+    std::cout<<"Best item for all users = "<<result.first<<"      with rating= "<<result.second<<std::endl;
 
     return 0;
 }
